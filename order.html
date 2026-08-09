@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>إتمام الطلب - NOVA STORE</title>
+<style>
+body{font-family:Arial;background:#f5f5f5;margin:0;padding:20px}
+.box{max-width:500px;margin:auto;background:white;padding:25px;border-radius:15px}
+h1{text-align:center}
+input,select,textarea{width:100%;padding:13px;margin:8px 0 15px;border:1px solid #ddd;border-radius:8px;box-sizing:border-box}
+button{width:100%;padding:14px;background:#111;color:white;border:0;border-radius:8px;font-size:17px}
+</style>
+</head>
+<body>
+
+<div class="box">
+<h1>إتمام الطلب 🛍️</h1>
+
+<form id="orderForm">
+
+<label>الاسم الكامل</label>
+<input id="name" required>
+
+<label>رقم الهاتف</label>
+<input id="phone" type="tel" required>
+
+<label>المدينة</label>
+<input id="city" required>
+
+<label>العنوان</label>
+<textarea id="address" required></textarea>
+
+<label>المقاس</label>
+<select id="size">
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+</select>
+
+<label>الكمية</label>
+<input id="quantity" type="number" min="1" value="1" required>
+
+<button type="submit">إرسال الطلب عبر WhatsApp</button>
+
+</form>
+</div>
+
+<script>
+document.getElementById("orderForm").onsubmit=function(e){
+e.preventDefault();
+
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let city=document.getElementById("city").value;
+let address=document.getElementById("address").value;
+let size=document.getElementById("size").value;
+let quantity=document.getElementById("quantity").value;
+
+let message=
+"🛍️ طلب جديد - NOVA STORE\n\n"+
+"👤 الاسم: "+name+"\n"+
+"📞 الهاتف: "+phone+"\n"+
+"📍 المدينة: "+city+"\n"+
+"🏠 العنوان: "+address+"\n"+
+"📏 المقاس: "+size+"\n"+
+"🔢 الكمية: "+quantity;
+
+window.location.href=
+"https://wa.me/212722224905?text="+encodeURIComponent(message);
+};
+</script>
+
+</body>
+</html>
